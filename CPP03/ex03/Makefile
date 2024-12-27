@@ -10,13 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ScavTrap
+NAME = DiamondTrap
 PATH_SRC = ./
-SRC = $(PATH_SRC)main.cpp $(PATH_SRC)ClapTrap.cpp $(PATH_SRC)ScavTrap.cpp
+SRC = $(PATH_SRC)main.cpp $(PATH_SRC)ClapTrap.cpp $(PATH_SRC)ScavTrap.cpp $(PATH_SRC)FragTrap.cpp $(PATH_SRC)DiamondTrap.cpp
 OBJ_DIR = ./obj/
 OBJ = $(patsubst $(PATH_SRC)%.cpp, $(OBJ_DIR)%.o, $(SRC))
 CPP = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
 
 all: $(OBJ_DIR) $(NAME)
 
