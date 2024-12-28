@@ -5,10 +5,10 @@
 class WrongCat: public WrongAnimal
 {
     public:
-    WrongCat(void);
-    virtual ~WrongCat(void);
-    WrongCat(const WrongCat &WrongCat);
-    WrongCat &operator=(const WrongCat &WrongCat);
+        WrongCat(void);
+        virtual ~WrongCat(void);
+        WrongCat(const WrongCat &copy);
+        WrongCat &operator=(const WrongCat &copy);
 
-    void makeSound()const;
+        void makeSound()const;
 };

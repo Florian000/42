@@ -13,17 +13,17 @@ Cat::~Cat(void)
     return ;
 }
 
-Cat::Cat(const Cat &cat): Animal(cat)
+Cat::Cat(const Cat &copy): Animal(copy)
 {
     std::cout << this->getType() <<" copy constructor called" << std::endl;
     return ;
 }
-Cat &Cat::operator=(const Cat &cat)
+Cat &Cat::operator=(const Cat &copy)
 {
     std::cout << "Cat assignement operator called" << std::endl;
-    if(this == &cat)
+    if(this == &copy)
         return (*this);
-    _type = cat._type;
+    _type = copy._type;
     return (*this);
 }
 

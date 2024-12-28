@@ -6,39 +6,28 @@
 
 int main()
 {
-const Animal* meta = new Animal();
-const Animal* j = new Dog();
-const Animal* i = new Cat();
+const Animal *tab[100];
 
-std::cout << "Type of j & i :" << std::endl;
-std::cout << j->getType() << " " << std::endl;
-std::cout << i->getType() << " " << std::endl;
-std::cout << "Sound of Cat created as Animal :" << std::endl ;
-i->makeSound();
-std::cout << "Sound of Dog created as Animal :" << std::endl ;
-j->makeSound();
-std::cout << "Sound of Animal :" << std::endl ;
-meta->makeSound();
+for (int i = 0; i < 100; i++)
+{
+	if (i % 2 == 0)
+		tab[i] = new Cat();
+	else
+		tab[i] = new Dog();	
+}
 
-const WrongAnimal* meta2 = new WrongAnimal();
-const WrongAnimal* j2 = new WrongCat();
-const WrongCat* i2 = new WrongCat();
+for (int i = 0; i < 100; i++)
+{
+	std::cout << "index :" << i << " Type :" << tab[i]->getType() << std::endl;
+}
 
-std::cout << "Type of j2 & i2 :" << std::endl;
-std::cout << j2->getType() << " " << std::endl;
-std::cout << i2->getType() << " " << std::endl;
-std::cout << "Sound of WrongCat created as wrongcat :" << std::endl ;
-i2->makeSound();
-std::cout << "Sound of WrongCat created as wrongAnimal :" << std::endl;
-j2->makeSound();
-std::cout << "Sound of WrongAnimal :" << std::endl;
-meta2->makeSound();
+const Animal *copy = new Animal(*tab[0]);
 
-delete meta;
-delete i;
-delete j;
-delete meta2;
-delete i2;
-delete j2;
+for (int i = 0; i < 100; i++)
+{
+	delete tab[i];
+}
+std::cout << "Copy " << "Type :" << copy->getType() << std::endl;
+delete copy;
 return 0;
 }

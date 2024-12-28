@@ -13,18 +13,17 @@ Animal::~Animal(void)
     return ;
 }
 
-Animal::Animal(const Animal &Animal)
+Animal::Animal(const Animal &copy): _type(copy.getType())
 {
-    this->_type = Animal._type;
     std::cout << "Animal copy constructor called" << std::endl;
     return ;
 }
-Animal &Animal::operator=(const Animal &Animal)
+Animal &Animal::operator=(const Animal &copy)
 {
     std::cout << "Animal assignement operator called" << std::endl;
-    if (this == &Animal)
+    if (this == &copy)
         return (*this);
-    this->_type = Animal._type;
+    this->_type = copy.getType();
     return (*this);
 }
 

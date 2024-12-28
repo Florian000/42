@@ -5,10 +5,10 @@
 class Cat: public Animal
 {
     public:
-    Cat(void);
-    virtual ~Cat(void);
-    Cat(const Cat &cat);
-    Cat &operator=(const Cat &cat);
+        Cat(void);
+        virtual ~Cat(void);
+        Cat(const Cat &copy);
+        Cat &operator=(const Cat &copy);
 
-    void makeSound()const;
+        void makeSound()const;
 };

@@ -13,18 +13,18 @@ WrongAnimal::~WrongAnimal(void)
     return ;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &WrongAnimal)
+WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 {
-    this->_type = WrongAnimal._type;
+    this->_type = copy._type;
     std::cout << "WrongAnimal copy constructor called" << std::endl;
     return ;
 }
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal &WrongAnimal)
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &copy)
 {
     std::cout << "WrongAnimal assignement operator called" << std::endl;
-    if (this == &WrongAnimal)
+    if (this == &copy)
         return (*this);
-    this->_type = WrongAnimal._type;
+    this->_type = copy._type;
     return (*this);
 }
 
