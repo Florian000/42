@@ -1,0 +1,5 @@
+To be read by the programm the line must start with a number representing the error code and be followed by ":" and by the corresponding error message.
+The templates error codes can be modified and this dict must be completed with specific error codes for each programm created.
+1: Invalid number of arguments
+2: File cannot be opened
+3: Command not found

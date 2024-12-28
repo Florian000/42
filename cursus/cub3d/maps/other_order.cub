@@ -1,0 +1,11 @@
+WE ./textures/lava.xpm
+F 220,100,0
+EA ./textures/card.xpm
+NO ./textures/wood.xpm
+SO ./textures/container.xpm
+C 225,30,0
+
+
+X1X
+1N1
+X1X
