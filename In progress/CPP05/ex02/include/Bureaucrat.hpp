@@ -1,5 +1,8 @@
 #pragma once
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -18,6 +21,7 @@ class Bureaucrat
 		//Member function
 		void incGrade();
 		void decGrade();
+		void signForm(Form &form);
 		//Getter
 		std::string getName()const;
 		int getGrade()const;
