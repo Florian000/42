@@ -103,6 +103,12 @@ char	*ft_read(int fd, char *buffer)
 		}
 		reading[bytes_read] = 0;
 		buffer = ft_strjoin_free(buffer, reading);
+		if (!buffer)
+		{
+			if (reading)
+				free(reading);
+			return (NULL);
+		}
 	}
 	free(reading);
 	return (buffer);
