@@ -13,7 +13,7 @@
 
 NAME = bureaucrat
 PATH_SRC = ./src/
-SRC = $(PATH_SRC)Bureaucrat.cpp $(PATH_SRC)main.cpp $(PATH_SRC)Form.cpp 
+SRC = $(PATH_SRC)Bureaucrat.cpp $(PATH_SRC)main.cpp $(PATH_SRC)AForm.cpp $(PATH_SRC)ShrubberyCreationForm.cpp $(PATH_SRC)RobotomyRequestForm.cpp $(PATH_SRC)PresidentialPardonForm.cpp
 OBJ_DIR = ./obj/
 OBJ = $(patsubst $(PATH_SRC)%.cpp, $(OBJ_DIR)%.o, $(SRC))
 CPP = c++

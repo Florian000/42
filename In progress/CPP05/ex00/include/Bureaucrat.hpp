@@ -4,25 +4,25 @@
 class Bureaucrat
 {
 	private:
-		const std::string _name;
-		int _grade;
+		const std::string _name; // Name of the bureaucrat
+		int _grade; // Grade of the bureaucrat
 	public:
-		//Constructor
+		// Constructors
 		Bureaucrat();
 		Bureaucrat(const std::string name, int grade);
 		Bureaucrat(const Bureaucrat& copy);
-		//Operators
+		// Assignment operator
 		Bureaucrat& operator=(const Bureaucrat& copy);
-		//Destructor
+		// Destructor
 		~Bureaucrat();
-		//Member function
+		// Member functions
 		void incGrade();
 		void decGrade();
-		//Getter
+		// Getters
 		std::string getName()const;
 		int getGrade()const;
 
-		//Exeptions
+		// Exceptions
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -35,4 +35,5 @@ class Bureaucrat
 		};
 };
 
+// Overload of the << operator
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);

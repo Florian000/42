@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+// Forward declaration of Bureaucrat class
 class Bureaucrat;
 
 class Form
@@ -12,24 +13,23 @@ class Form
 		const int _req_grade_sign;
 		const int _req_grade_exec;
 	public:
-		//Constructor
+		 // Constructors
 		Form();
 		Form(std::string name, int req_grade_sign, int req_grade_exec);
 		Form(const Form& copy);
-		//Operators
+		// Assignment operator
 		Form& operator=(const Form& copy);
-		//Destructor
+		// Destructor
 		~Form();
-		//Member function
+		// Member function
 		void beSigned(const Bureaucrat &bureaucrat);
-		//Getter
+		// Getters
 		std::string getName() const;
 		bool getSigned() const;
 		int getSignedGrade() const;
 		int getExecGRade() const;
 
-		//Setter
-		//Exception
+		// Exceptions
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -42,4 +42,5 @@ class Form
 		};
 };
 
+// Overload of the << operator for Form
 std::ostream& operator<<(std::ostream& os, const Form& form);

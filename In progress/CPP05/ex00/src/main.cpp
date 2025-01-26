@@ -1,57 +1,72 @@
 #include "../include/Bureaucrat.hpp"
 
+// ANSI color codes
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define WHITE   "\033[37m"
+
 int main()
 {
-	std::cout << "Creating default bureaucrat, testing getters and printing with <<" << std::endl;
-	try {
-	Bureaucrat unknown;
-	std::cout << unknown;
-	std::cout << unknown.getGrade() << std::endl;
-	std::cout << unknown.getName() << std::endl;
-	} catch(const std::exception &e) {
-		std::cerr << "Exception raised : " << e.what() << std::endl;
-	}
+    // Test 1: Default constructor
+    std::cout << BLUE << "Test 1: Default constructor" << RESET << std::endl;
+    Bureaucrat b1;
+    std::cout << b1;
+    std::cout << "-------------------------" << std::endl << std::endl;
 
-	std::cout << std::endl <<"Creating too high bureaucrat" << std::endl;
-	try {
-		Bureaucrat bob("bob", 151);
-	} catch(const std::exception &e) {
-		std::cerr << "Exception raised : " << e.what() << std::endl;
-	}
+    // Test 2: Parameterized constructor with valid grade
+    std::cout << BLUE << "Test 2: Parameterized constructor with valid grade" << RESET << std::endl;
+    Bureaucrat b2("Alice", 75);
+    std::cout << b2;
+    std::cout << "-------------------------" << std::endl << std::endl;
 
-	std::cout << std::endl << "Creating too low bureaucrat" << std::endl;
-	try {
-		Bureaucrat bob("bob", 0);
-	} catch(const std::exception &e) {
-		std::cerr << "Exception raised : " << e.what() << std::endl;
-	}
+    // Test 3: Parameterized constructor with grade too high
+    std::cout << BLUE << "Test 3: Parameterized constructor with grade too high" << RESET << std::endl;
+    try {
+        Bureaucrat b3("Bob", 0);
+    } catch (std::exception &e) {
+        std::cout << RED << e.what() << RESET << std::endl;
+    }
+    std::cout << "-------------------------" << std::endl << std::endl;
 
-	std::cout << std::endl << "Incrementing too high bureaucrat" << std::endl;
-	try {
-		Bureaucrat bob("bob", 1);
-		bob.incGrade();
-	} catch(const std::exception &e) {
-		std::cerr << "Exception raised : " << e.what() << std::endl;
-	}
+    // Test 4: Parameterized constructor with grade too low
+    std::cout << BLUE << "Test 4: Parameterized constructor with grade too low" << RESET << std::endl;
+    try {
+        Bureaucrat b4("Charlie", 151);
+    } catch (std::exception &e) {
+        std::cout << RED << e.what() << RESET << std::endl;
+    }
+    std::cout << "-------------------------" << std::endl << std::endl;
 
-	std::cout << std::endl << "Decrementing too low bureaucrat" << std::endl;
-	try {
-		Bureaucrat bob("bob", 150);
-		bob.decGrade();
-	} catch(const std::exception &e) {
-		std::cerr << "Exception raised : " << e.what() << std::endl;
-	}
+    // Test 5: Increment grade
+    std::cout << BLUE << "Test 5: Increment grade" << RESET << std::endl;
+    Bureaucrat b5("Dave", 2);
+    std::cout << b5;
+    b5.incGrade();
+    std::cout << b5;
+    try {
+        b5.incGrade();
+    } catch (std::exception &e) {
+        std::cout << RED << e.what() << RESET << std::endl;
+    }
+    std::cout << "-------------------------" << std::endl << std::endl;
 
-	std::cout << std::endl << "Testing nomal inc and dec" << std::endl;
-	try {
-		Bureaucrat bob("bob", 120);
-		std::cout << bob;
-		bob.incGrade();
-		std::cout << bob;
-		bob.decGrade();
-		std::cout << bob;
-	} catch(const std::exception &e) {
-		std::cerr << "Exception raised : " << e.what() << std::endl;
-	}
-	return (0);
+    // Test 6: Decrement grade
+    std::cout << BLUE << "Test 6: Decrement grade" << RESET << std::endl;
+    Bureaucrat b6("Eve", 149);
+    std::cout << b6;
+    b6.decGrade();
+    std::cout << b6;
+    try {
+        b6.decGrade();
+    } catch (std::exception &e) {
+        std::cout << RED << e.what() << RESET << std::endl;
+    }
+    std::cout << "-------------------------" << std::endl << std::endl;
+
+    return 0;
 }
