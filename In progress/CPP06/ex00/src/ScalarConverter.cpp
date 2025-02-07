@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "../include/ScalarConverter.hpp"
 
 ScalarConverter::ScalarConverter() {}
 ScalarConverter::~ScalarConverter() {}
@@ -83,9 +83,14 @@ void ScalarConverter::convertToChar(const std::string& literal)
 
 void ScalarConverter::convertToInt(const std::string& literal)
 {
-    try 
+    long i;
+    
+    try
     {
-        long i = std::strtol(literal.c_str(), NULL, 10);
+        if (literal.length() == 1 && std::isprint(literal[0]) && !std::isdigit(literal[0]))
+            i = static_cast<int>(literal[0]);
+        else
+            i = std::strtol(literal.c_str(), NULL, 10);
         if (errno == ERANGE || i < std::numeric_limits<int>::min() || i > std::numeric_limits<int>::max())
             std::cout << "int: impossible" << std::endl;
         else
@@ -99,10 +104,14 @@ void ScalarConverter::convertToInt(const std::string& literal)
 
 void ScalarConverter::convertToFloat(const std::string& literal)
 {
+    float f;
+    
     try
     {
-        float f = static_cast<float>(std::atof(literal.c_str()));
-        
+        if (literal.length() == 1 && std::isprint(literal[0]) && !std::isdigit(literal[0]))
+            f = static_cast<float>(literal[0]);
+        else
+            f = static_cast<float>(std::atof(literal.c_str()));
         if (f < -std::numeric_limits<float>::max() || f > std::numeric_limits<float>::max() || std::numeric_limits<float>::digits10 <= std::log10(std::abs(f)))
             std::cout << "float: impossible" << std::endl;
         else
@@ -116,9 +125,14 @@ void ScalarConverter::convertToFloat(const std::string& literal)
 
 void ScalarConverter::convertToDouble(const std::string& literal)
 {
+    double d;
+
     try
     {
-        double d = std::strtod(literal.c_str(), NULL);
+        if (literal.length() == 1 && std::isprint(literal[0]) && !std::isdigit(literal[0]))
+            d = static_cast<double>(literal[0]);
+        else
+            d = std::strtod(literal.c_str(), NULL);
         if (d < -std::numeric_limits<double>::max() || d > std::numeric_limits<double>::max() || std::numeric_limits<double>::digits10 <= std::log10(std::abs(d)))   
             std::cout << "double: impossible" << std::endl;
         else

@@ -1,4 +1,4 @@
-#include "B.hpp"
+#include "../include/B.hpp"
 
 B::B() {}
 

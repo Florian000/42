@@ -1,4 +1,4 @@
-#include "A.hpp"
+#include "../include/A.hpp"
 
 A::A() {}
 
