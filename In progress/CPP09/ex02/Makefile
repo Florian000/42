@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = iter
+NAME = mutantstack
 PATH_SRC = ./src/
 SRC = $(PATH_SRC)main.cpp
 OBJ_DIR = ./obj/
