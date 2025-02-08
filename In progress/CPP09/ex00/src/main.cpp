@@ -8,19 +8,21 @@ int main(int argc, char* argv[]) {
         std::cerr << "Error: could not open file." << std::endl;
         return 1;
     }
-
-    std::ifstream inputFile(argv[1]);
-    if (!inputFile.is_open()) {
-        std::cerr << "Error: could not open file." << std::endl;
-        return 1;
+    try
+    {
+            BitcoinExchange exchange(argv[1]);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
     }
 
-    BitcoinExchange exchange("bitcoin_data.csv");
-    std::string line;
-    while (std::getline(inputFile, line)) {
+
+
         std::istringstream iss(line);
         std::string date, valueStr;
-        if (std::getline(iss, date, '|') && std::getline(iss, valueStr)) {
+        if (std::getline(iss, date, '|') && std::getline(iss, valueStr)) 
+        {
             try {
                 std::stringstream valueStream(valueStr);
                 float value;

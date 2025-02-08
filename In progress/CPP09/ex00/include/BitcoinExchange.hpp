@@ -13,7 +13,7 @@ class BitcoinExchange
         ~BitcoinExchange();
 
         float getRate(const std::string& date) const;
-
+        void  printTable() const;
     private:
         std::map<std::string, float> exchangeRates;
         void loadRates(const std::string& filename);
