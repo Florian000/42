@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Span
+NAME = RPN
 PATH_SRC = ./src/
-SRC = $(PATH_SRC)main.cpp $(PATH_SRC)Span.cpp
+SRC = $(PATH_SRC)main.cpp $(PATH_SRC)RPN.cpp
 OBJ_DIR = ./obj/
 OBJ = $(patsubst $(PATH_SRC)%.cpp, $(OBJ_DIR)%.o, $(SRC))
 CPP = c++
