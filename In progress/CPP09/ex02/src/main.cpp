@@ -1,17 +1,25 @@
+
 #include "../include/PmergeMe.hpp"
 
-int main(int argc, char **argv)
+int main(int argc, char **argv) 
 {
     if (argc < 2)
-        return (std::cerr << "Error: invalid argument" << std::endl, 1);
+    { 
+        std::cerr << "Error : Wrong number of arguments" << std::endl;
+        return 1;
+    }
 
     PmergeMe pmm;
     try
     {
-        pmm.processInput(argc, argv); 
+        pmm.processInputAndSort(argc, argv); 
         pmm.displayResults();
+
     }
     catch (const std::exception& e)
-        { return (std::cerr << e.what() << std::endl, 1); }
+    {
+        std::cerr << "Error: " << e.what() << std::endl; 
+        return 1;
+    }
     return 0;
 }
